@@ -3,4 +3,4 @@ def islower(c):
     for letter in range(97, 123):
         if (ord(c) == letter):
             return True
-        return False 
+        return False
