@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 def uppercase(str):
-    uppercase_str = ""
+    ammended_string = ""
     for c in str:
         if (ord(c) >= 97 and ord(c) <= 122):
-            uppercase_str = chr(ord(c) - 32)
-            uppercase_str += uppercase_str
+            ammended_char = chr(ord(c) - 32)
+            ammended_string += ammended_char
         else:
-            uppercase_str += c
-    print("{}".format(uppercase_str))
+            ammended_string += c
+    print("{}".format(ammended_string))
