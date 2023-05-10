@@ -22,6 +22,7 @@ listint_t *insert_node(listint_t **head, int number)
 	if (*head == NULL)
 	/*Check if the list is empty and make the new node the head node*/
 	{
+		new_node->n = number;
 		*head = new_node;
 		return (new_node);
 	}
@@ -29,6 +30,7 @@ listint_t *insert_node(listint_t **head, int number)
 	/*helps us traverse the linked list*/
 	if (number < tmp_head->n)
 	{
+		new_node->n = number;
 		new_node->next = tmp_head;
 		/*new_node stores address of the head node*/
 		*head = new_node;
@@ -36,6 +38,7 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	while (tmp_head->next != NULL && tmp_head->next->n < number)
 		tmp_head = tmp_head->next;
+	new_node->n = number;
 	new_node->next = tmp_head->next;
 	/*Connect the new node to the next node in the list*/
 	tmp_head->next = new_node;
