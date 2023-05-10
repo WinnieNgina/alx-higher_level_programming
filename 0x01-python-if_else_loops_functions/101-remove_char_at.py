@@ -7,6 +7,7 @@ def remove_char_at(string, n):
 
     for i in range(len(string)):
         if i != n:
-            new_string += string[i]  # Append the character to the new string if it's not at position n
+            new_string += string[i]
+            # Append the character to the new string if it's not at position n
 
     return new_string
