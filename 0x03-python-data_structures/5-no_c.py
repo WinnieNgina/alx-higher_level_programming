@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def no_c(my_string):
-    filtered_chars = filter(lambda x: x.lower() != 'c', my_string)
-    return "".join(filtered_chars)
+    copy = [x for x in my_string if x != 'c' and x != 'C']
+    return ("".join(copy))
