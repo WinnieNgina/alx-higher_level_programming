@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
 def no_c(my_string):
-    new_string = ""
-    for char in my_string:
-        if char != 'c' and char != 'C':
-            new_string += char
-    return new_string
+    filtered_chars = filter(lambda x: x.lower() != 'c', my_string)
+    return "".join(filtered_chars)
