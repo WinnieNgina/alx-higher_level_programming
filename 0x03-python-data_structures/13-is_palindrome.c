@@ -13,8 +13,6 @@ int is_palindrome(listint_t **head)
 	int j;
 	int palindrome;
 
-	if (head == NULL)
-		return (0);
 	tmp_head = *head;
 	if (tmp_head == NULL || tmp_head->next == NULL)
 		return (1);
