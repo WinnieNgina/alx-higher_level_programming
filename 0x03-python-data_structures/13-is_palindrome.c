@@ -6,34 +6,28 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp_head;
-	int i = 1;
-	int arr[i];
+	listint_t *tmp_head = *head;
+	int i = 0;
+	int arr[10000];
 	int index;
 	int j;
-	int palindrome;
 
-	tmp_head = *head;
 	if (tmp_head == NULL || tmp_head->next == NULL)
 		return (1);
 	/*An empty list is considered a palindrome*/
 
 	while (tmp_head != NULL)
+	/*Copy the linked list values into the array*/
 	{
 		arr[i] = tmp_head->n;
 		tmp_head = tmp_head->next;
 		i++;
 	}
-	for (index = 0, j = i - 1; index < j; i++, j--)
+	/*Check if the array is a palindrome*/
+	for (index = 0, j = i - 1; index < j; index++, j--)
 	{
 		if (arr[index] != arr[j])
-		{
-			palindrome = 0;
-		}
-		else
-		{
-			  palindrome = 1;
-		}
+			return (0);
 	}
-	return (palindrome);
+	return (1);
 }
