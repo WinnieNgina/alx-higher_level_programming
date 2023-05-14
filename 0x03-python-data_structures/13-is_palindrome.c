@@ -32,7 +32,7 @@ int is_palindrome(listint_t **head)
 		}
 		else
 		{
-			  palindrome = 0;
+			  palindrome = 1;
 		}
 	}
 	return (palindrome);
