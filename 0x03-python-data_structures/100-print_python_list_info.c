@@ -8,15 +8,17 @@ void print_python_list_info(PyObject *p)
 {
 	PyObject *item;
 	const char *typeName;
-
-	Py_ssize_t size = PyList_Size(p);  /*Get the size of the list*/
-	printf("Size of the list: %zd\n", size);
+	Py_ssize_t size = PyList_Size(p); /*Get the size of the list*/
+	Py_ssize_t allocated = ((PyListObject *)p)->allocated;
+	/*Get the allocated size*/
+	printf("[*] Size of the Python List = %zd\n", size);
+	printf("[*] Allocated = %zd\n", allocated);
 	for (Py_ssize_t i = 0; i < size; i++)
 	{
-		item = PyList_GetItem(p, i);  /*Get each item in the list*/
+		item = PyList_GetItem(p, i);
+		/*Get each item in the list*/
 		/*Get the type of each item*/
 		typeName = Py_TYPE(item)->tp_name;
-		printf("Item %zd: Type = %s\n", i, typeName);
+		printf("Element %zd: %s\n", i, typeName);
 	}
 }
-
