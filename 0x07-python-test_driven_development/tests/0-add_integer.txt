@@ -66,7 +66,7 @@ If either argument is a non-integer and non-float, a TypeError is raised:
     TypeError: b must be an integer
 
 
-    >>> add_integer(Hello)
+    >>> add_integer("Hello")
     Traceback (most recent call last):
     TypeError: a must be an integer
 
@@ -116,7 +116,6 @@ or taking the square root of a negative number.
     >>> add_integer(float('nan'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
-
 
     >>> add_integer(3, float('nan'))
     Traceback (most recent call last):
