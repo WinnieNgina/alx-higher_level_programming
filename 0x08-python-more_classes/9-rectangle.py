@@ -58,15 +58,6 @@ class Rectangle:
         else:
             return ((self.height + self.width) * 2)
 
-    @classmethod
-    def square(cls, size=0):
-        """Return a new Rectangle with width and height equal to size.
-
-        Args:
-            size (int): The width and height of the new Rectangle.
-        """
-        return (cls(size, size))
-
     def __str__(self):
         """Prints rectangle using # shapes"""
         my_list = ""
@@ -102,3 +93,7 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        return (cls(size, size))
