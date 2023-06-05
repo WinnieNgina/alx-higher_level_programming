@@ -1,0 +1,123 @@
+# 0-add_integer.txt
+
+======================================
+How to Use function adding two numbers
+======================================
+
+This module defines an integer addition function ``add_integer(a, b=98)``.
+
+Usage
+=====
+
+``add_integer(...)``` returns the addition of its two arguments. The function
+works similarly as the  ```+``` arithmetic operator
+
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(6, 3)
+    9
+
+    >>> add_integer(2, -4)
+    -2
+
+The function also works with floating-point values.
+
+
+    >>> add_integer(3.0, 3.0)
+    6
+
+Floats casted to ints before addition is done.
+
+
+    >>> add_integer(2.91, 0.23)
+    2
+
+Floats converted to integers before addition.
+
+
+    >>> add_integer(-2.9, -0.2)
+    -2
+
+    >>> add_integer(2.3, -2)
+    0
+
+You can add intergers and floats
+
+
+    >>> add_integer(2)
+    100
+
+The default b value is 98 therefore 2 args is optional
+
+Non-Numbers
+===========
+
+Addition is done only if  both arguments are either integers or floats.
+If either argument is a non-integer and non-float, a TypeError is raised:
+
+
+    >>> add_integer("hello", 4)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+
+    >>> add_integer(1, "World")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+
+    >>> add_integer(Hello)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(2.3, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+If both arguments are non-integers and non-floats, a TypeError message is only
+printed for the first argument.
+
+
+    >>> add_integer("hello", "World")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+nan and inf arguments
+=====================
+In Python, nan and inf are special floating-point values 
+representing "Not a Number" and "Infinity,"
+
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+
+It exceeds the maximum representable finite value in floating-point arithmetic. 
+
+It occurs as a result of operations like dividing a nonzero number by zero 
+or multiplying an infinite value by zero.     
+
+
+    >>> add_integer(4, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+==========================
+
+nan (short for "Not a Number") represents an undefined 
+or unrepresentable value in floating-point arithmetic. .
+
+It is the result of invalid operations, such as dividing zero by zero
+or taking the square root of a negative number.
+
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+
+    >>> add_integer(3, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
