@@ -9,4 +9,4 @@ def class_to_json(obj):
     returns dictionary desc for JSON serialization of an object
     """
 
-    return vars(obj) 
+    return vars(obj)
