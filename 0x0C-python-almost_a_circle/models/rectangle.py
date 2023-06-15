@@ -130,3 +130,31 @@ class Rectangle(Base):
         """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}\
 - {self.__width}/{self.__height}"
+
+    def update(self, *args):
+        """
+        update instance attributes
+        """
+        try:
+            self.id = args[0]
+        except IndexError:
+            pass
+        try:
+            self.__width = args[1]
+        except IndexError:
+            pass
+
+        try:
+            self.__x = args[3]
+        except IndexError:
+            pass
+
+        try:
+            self.__y = args[4]
+        except IndexError:
+            pass
+
+        try:
+            self.__height = args[2]
+        except IndexError:
+            pass
