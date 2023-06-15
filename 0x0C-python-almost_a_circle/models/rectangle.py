@@ -118,9 +118,10 @@ class Rectangle(Base):
         """
         Prints a rectangle shape
         """
+        for k in range(self.__y):
+            print()
         for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end="")
+            print("{}{}".format(" " * self.__x, "#" * self.__width), end="")
             print()
 
     def __str__(self):
