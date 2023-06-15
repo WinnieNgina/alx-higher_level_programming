@@ -34,10 +34,10 @@ class Rectangle(Base):
         """
         Constructor
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -48,8 +48,14 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def set_width(self, value):
-        self.__width = value
+    def width(self, value):
+        # print(f"\tChecking width {value}")
+        if (not isinstance(value, int)):
+            raise TypeError("width must be an integer")
+        elif (value <= 0):
+            raise ValueError("width must be > 0")
+        else:
+            self.__width = value
 
     @property
     def height(self):
@@ -59,8 +65,14 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def set_height(self, value):
-        self.__height = value
+    def height(self, value):
+        # print(f"\tChecking height {value}")
+        if (not isinstance(value, int)):
+            raise TypeError("height must be an integer")
+        elif (value <= 0):
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = value
 
     @property
     def x(self):
@@ -70,8 +82,14 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def set_x(self, value):
-        self.__x = value
+    def x(self, value):
+        # print(f"\tChecking x {value}")
+        if (not isinstance(value, int)):
+            raise TypeError("x must be an integer")
+        elif (value < 0):
+            raise ValueError("x must be >= 0")
+        else:
+            self.__x = value
 
     @property
     def y(self):
@@ -81,5 +99,26 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def set_y(self, value):
-        self.__y = value
+    def y(self, value):
+        # print(f"\tChecking y {value}")
+        if (not isinstance(value, int)):
+            raise TypeError("y must be an integer")
+        elif (value < 0):
+            raise ValueError("y must be >= 0")
+        else:
+            self.__y = value
+
+    def area(self):
+        """
+        Calculate area of the rectangle
+        """
+        return (self.__height * self.__width)
+
+    def display(self):
+        """
+        Prints a rectangle shape
+        """
+        for i in range(self.__height):
+            for j in range(self.__width):
+                print("#", end="")
+            print()
