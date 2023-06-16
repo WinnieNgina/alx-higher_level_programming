@@ -135,41 +135,55 @@ class Rectangle(Base):
         """
         update instance attributes
         """
-        try:
-            self.id = args[0]
-        except IndexError:
-            pass
-        try:
-            self.__width = args[1]
-        except IndexError:
-            pass
+        if (len(args) > 0):
+            try:
+                self.id = args[0]
+            except IndexError:
+                pass
+            try:
+                self.__width = args[1]
+            except IndexError:
+                pass
 
-        try:
-            self.__x = args[3]
-        except IndexError:
-            pass
+            try:
+                self.__x = args[3]
+            except IndexError:
+                pass
 
-        try:
-            self.__y = args[4]
-        except IndexError:
-            pass
+            try:
+                self.__y = args[4]
+            except IndexError:
+                pass
 
-        try:
-            self.__height = args[2]
-        except IndexError:
-            pass
-        args_list = ["id", "width", "height", "x", "y"]
-        for attrs in args_list:
-            if attrs in kwargs:
-                if attrs == "width":
-                    self.__width = kwargs[attrs]
-                if attrs == "height":
-                    self.__height = kwargs[attrs]
-                if attrs == "x":
-                    self.__x = kwargs[attrs]
-                if attrs == "y":
-                    self.__y = kwargs[attrs]
-                if attrs == "id":
-                    self.id = kwargs[attrs]
+            try:
+                self.__height = args[2]
+            except IndexError:
+                pass
+        else:
+            args_list = ["id", "width", "height", "x", "y"]
+            for attrs in args_list:
+                if attrs in kwargs:
+                    if attrs == "width":
+                        self.__width = kwargs[attrs]
+                    if attrs == "height":
+                        self.__height = kwargs[attrs]
+                    if attrs == "x":
+                        self.__x = kwargs[attrs]
+                    if attrs == "y":
+                        self.__y = kwargs[attrs]
+                    if attrs == "id":
+                        self.id = kwargs[attrs]
             else:
                 pass
+
+    def to_dictionary(self):
+        """
+        Return dictionary representation
+        """
+        my_dict = {}
+        my_dict['id'] = self.id
+        my_dict['width'] = self.__width
+        my_dict['height'] = self.__height
+        my_dict['x'] = self.__x
+        my_dict['y'] = self.__y
+        return my_dict
