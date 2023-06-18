@@ -57,3 +57,48 @@ class Base:
         file_name = cls.__name__ + ".json"
         with open(file_name, 'w', encoding="utf-8") as json_file:
             json_file.write(json_dict_list)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        convert json string to list
+        """
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        creates an instance of a class
+        """
+        # create an instance of class
+        dummy_instance = cls(1, 1)
+        # Use update() method to update dummy instance
+        dummy_instance.update(**dictionary)
+        return (dummy_instance)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances
+        """
+        file_name = cls.__name__ + ".json"
+
+        # Open file in read only mode
+        with open(file_name, 'r', encoding="utf-8") as json_file:
+            list_dicts = cls.from_json_string(json_file.read())
+
+        # Convert json strings from file into python dicts
+
+        # Use create() method to create instances
+        list_insts = []
+
+        for dicts in list_dicts:
+            list_insts.append(cls.create(**dicts))
+
+        # Append the instances created above to a list
+
+        # Return that list
+        return list_insts
