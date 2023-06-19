@@ -31,11 +31,13 @@ class Base:
     def to_json_string(list_dictionaries):
         """
         Convert dictionary to JSON repr
+
+        Args:
+            list_dictionaries (list): A list of dictionaries.
         """
-        if (len(list_dictionaries) == 0):
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
