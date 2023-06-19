@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Creates class Base
 """
@@ -8,18 +9,23 @@ import json
 class Base:
     """
     class Base
+
     args:
-    def __init__(self, id=None)
+        def __init__(self, id=None)
     """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        self.id = id
-        if id is not None:
+        """
+        Constructor method
+        """
+        # self.id = id
+        if (id is not None):
             self.id = id
         else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            # use type(self) since __nb_objects is private attr
+            type(self).__nb_objects += 1
+            self.id = type(self).__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -39,16 +45,14 @@ class Base:
 
         dict_list = []
 
-        # Loop through list_objs  invoke it's
-        # .to_dictionary method to convert it to a dict
+        # Loop through list_objs  invoke it's .to_dictionary method
 
         for inst in list_objs:
             dict_list.append(inst.to_dictionary())
 
-        # Append each dictionary into a list
+        # Put each dictionary into a list
 
-        # Convert the list to json string using
-        # the static method to_json_string()
+        # Convert the list to json using the static method to_json_string()
 
         json_dict_list = cls.to_json_string(dict_list)
 
@@ -71,12 +75,16 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        creates an instance of a class
+        create an instance using key values in dict
         """
-        # create an instance of class
+
+        # create dummy instance of class
         dummy_instance = cls(1, 1)
+
         # Use update() method to update dummy instance
+
         dummy_instance.update(**dictionary)
+
         return (dummy_instance)
 
     @classmethod
@@ -101,4 +109,4 @@ class Base:
         # Append the instances created above to a list
 
         # Return that list
-        return list_insts
+        return (list_insts)
