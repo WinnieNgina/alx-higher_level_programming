@@ -44,6 +44,7 @@ class Square(Rectangle):
         """
         if (len(args) > 0):
             try:
+
                 self.id = args[0]
                 # print(f"\tUpdate id with args")
             except IndexError:
@@ -69,6 +70,7 @@ class Square(Rectangle):
                 # print(f"\tUpdate y with args")
             except IndexError:
                 pass
+
         else:
             args_list = ["id", "size", "x", "y"]
 
@@ -90,6 +92,7 @@ class Square(Rectangle):
         Return dictionary representation
         """
         my_dict = {}
+
         my_dict['id'] = self.id
         my_dict['size'] = self.width
         my_dict['x'] = self.x
