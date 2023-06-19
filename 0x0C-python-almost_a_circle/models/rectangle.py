@@ -50,7 +50,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         # print(f"\tChecking width {value}")
-        if (not isinstance(value, int)):
+        if (type(value) != int):
             raise TypeError("width must be an integer")
         elif (value <= 0):
             raise ValueError("width must be > 0")
@@ -67,7 +67,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         # print(f"\tChecking height {value}")
-        if (not isinstance(value, int)):
+        if (type(value) != int):
             raise TypeError("height must be an integer")
         elif (value <= 0):
             raise ValueError("height must be > 0")
@@ -84,7 +84,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         # print(f"\tChecking x {value}")
-        if (not isinstance(value, int)):
+        if (type(value) != int):
             raise TypeError("x must be an integer")
         elif (value < 0):
             raise ValueError("x must be >= 0")
@@ -101,7 +101,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         # print(f"\tChecking y {value}")
-        if (not isinstance(value, int)):
+        if (type(value) != int):
             raise TypeError("y must be an integer")
         elif (value < 0):
             raise ValueError("y must be >= 0")
@@ -137,30 +137,38 @@ class Rectangle(Base):
         """
         if (len(args) > 0):
             try:
+
                 self.id = args[0]
             except IndexError:
                 pass
+
             try:
+
                 self.width = args[1]
             except IndexError:
                 pass
 
             try:
+
+                self.height = args[2]
+            except IndexError:
+                pass
+
+            try:
+
                 self.x = args[3]
             except IndexError:
                 pass
 
             try:
+
                 self.y = args[4]
             except IndexError:
                 pass
 
-            try:
-                self.height = args[2]
-            except IndexError:
-                pass
         else:
             args_list = ["id", "width", "height", "x", "y"]
+
             for attrs in args_list:
                 if attrs in kwargs:
                     if attrs == "width":
@@ -173,14 +181,15 @@ class Rectangle(Base):
                         self.y = kwargs[attrs]
                     if attrs == "id":
                         self.id = kwargs[attrs]
-            else:
-                pass
+                else:
+                    pass
 
     def to_dictionary(self):
         """
         Return dictionary representation
         """
         my_dict = {}
+
         my_dict['id'] = self.id
         my_dict['width'] = self.width
         my_dict['height'] = self.height

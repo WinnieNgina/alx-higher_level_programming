@@ -31,20 +31,18 @@ class Base:
     def to_json_string(list_dictionaries):
         """
         Convert dictionary to JSON repr
-
-        Args:
-            list_dictionaries (list): A list of dictionaries.
         """
-        if list_dictionaries is None or len(list_dictionaries) == 0:
+        if (list_dictionaries == [] or list_dictionaries is None):
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
         """
         Saves json string to file
         """
+        if list_objs is None:
+            return "[]"
 
         dict_list = []
 
@@ -98,18 +96,21 @@ class Base:
         file_name = cls.__name__ + ".json"
 
         # Open file in read only mode
-        with open(file_name, 'r', encoding="utf-8") as json_file:
-            list_dicts = cls.from_json_string(json_file.read())
+        try:
+            with open(file_name, 'r', encoding="utf-8") as json_file:
+                list_dicts = cls.from_json_string(json_file.read())
 
-        # Convert json strings from file into python dicts
+            # Convert json strings from file into python dicts
 
-        # Use create() method to create instances
-        list_insts = []
+            # Use create() method to create instances
+            list_insts = []
 
-        for dicts in list_dicts:
-            list_insts.append(cls.create(**dicts))
+            for dicts in list_dicts:
+                list_insts.append(cls.create(**dicts))
 
-        # Append the instances created above to a list
+            # Append the instances created above to a list
 
-        # Return that list
-        return (list_insts)
+            # Return that list
+            return (list_insts)
+        except (IOError, TypeError):
+            return []
