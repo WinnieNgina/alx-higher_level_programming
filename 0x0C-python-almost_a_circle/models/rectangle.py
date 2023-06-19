@@ -128,8 +128,8 @@ class Rectangle(Base):
         """
         String represantation
         """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}\
-- {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}\
+- {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """
@@ -141,22 +141,22 @@ class Rectangle(Base):
             except IndexError:
                 pass
             try:
-                self.__width = args[1]
+                self.width = args[1]
             except IndexError:
                 pass
 
             try:
-                self.__x = args[3]
+                self.x = args[3]
             except IndexError:
                 pass
 
             try:
-                self.__y = args[4]
+                self.y = args[4]
             except IndexError:
                 pass
 
             try:
-                self.__height = args[2]
+                self.height = args[2]
             except IndexError:
                 pass
         else:
@@ -164,13 +164,13 @@ class Rectangle(Base):
             for attrs in args_list:
                 if attrs in kwargs:
                     if attrs == "width":
-                        self.__width = kwargs[attrs]
+                        self.width = kwargs[attrs]
                     if attrs == "height":
-                        self.__height = kwargs[attrs]
+                        self.height = kwargs[attrs]
                     if attrs == "x":
-                        self.__x = kwargs[attrs]
+                        self.x = kwargs[attrs]
                     if attrs == "y":
-                        self.__y = kwargs[attrs]
+                        self.y = kwargs[attrs]
                     if attrs == "id":
                         self.id = kwargs[attrs]
             else:
@@ -182,8 +182,8 @@ class Rectangle(Base):
         """
         my_dict = {}
         my_dict['id'] = self.id
-        my_dict['width'] = self.__width
-        my_dict['height'] = self.__height
-        my_dict['x'] = self.__x
-        my_dict['y'] = self.__y
+        my_dict['width'] = self.width
+        my_dict['height'] = self.height
+        my_dict['x'] = self.x
+        my_dict['y'] = self.y
         return my_dict
