@@ -5,10 +5,11 @@ if (isNaN(num)) {
 } else {
   if (num > 0) {
     for (let i = 0; i < num; i++) {
+      let row = '';
       for (let j = 0; j < num; j++) {
-        process.stdout.write('X');
+        row += 'X';
       }
-      process.stdout.write('\n');
+      console.log(row);
     }
   }
 }
