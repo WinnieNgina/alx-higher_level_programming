@@ -12,7 +12,9 @@ if __name__ == "__main__":
     user = argv[1]
     pas = argv[2]
     db = argv[3]
-    dbUrl = 'mysql+mysqldb://{}:{}@localhost/{}'.format(user, pas, db, pool_pre_ping=True)
+    dbUrl = """mysql+mysqldb://{}:{}@localhost/{}'
+    .format(user, pas, db, pool_pre_ping=True)
+    """
     engine = create_engine(dbUrl)
     Session = sessionmaker(bind=engine)
     """
