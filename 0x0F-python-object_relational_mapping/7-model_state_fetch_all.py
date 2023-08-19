@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''
+Retrieves lists all State objects from the database hbtn_0e_6_us
+'''
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
