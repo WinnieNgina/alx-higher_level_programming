@@ -12,8 +12,12 @@ if __name__ == "__main__":
             port=3306
             )
     cur = conn.cursor()
-    query =
-    "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(argv[4])
+    query = """
+    SELECT * FROM states
+    WHERE name = '{}'
+    ORDER BY id ASC
+    """.format(argv[4])
+    # triple-quoted strings (""" ... """) are used to create multi-line strings
     # Query at risk of sql injection
     cur.execute(query)
     states_list = cur.fetchall()
