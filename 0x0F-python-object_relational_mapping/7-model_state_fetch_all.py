@@ -1,29 +1,25 @@
 #!/usr/bin/python3
 
-
-'''
-Retrieves lists all State objects from the database hbtn_0e_6_us
-'''
+"""
+Module that connects python script to a database
+"""
+from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sys import argv
 from model_state import Base, State
 
 if __name__ == "__main__":
-    user = argv[1]
-    pas = argv[2]
-    db = argv[3]
+
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'
-        .format(user, pas, db), pool_pre_ping=True
+        .format(argv[1], argv[2], argv[3]),
+        pool_pre_ping=True
     )
-    Session = sessionmaker(bind=engine)
-    """
-    session maker returns a function
-    """
-    session = Session()
 
-    for inst in session.query(State).order_by(State.id):
-        print("{}: {}".format(inst.id, inst.name))
+    my_session_maker = sessionmaker(bind=engine)
+    my_session = my_session_maker()
 
-    session.close()
+    for state in my_session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+
+    my_session.close()
