@@ -26,7 +26,6 @@ if __name__ == "__main__":
     tuple of a single element
     (the state_name value) to the execute() method.
     """
-    cur.execute(query)
     states_list = cur.fetchall()
     for state in states_list:
         print(state)
