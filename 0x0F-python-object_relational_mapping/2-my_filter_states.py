@@ -14,7 +14,7 @@ if __name__ == "__main__":
     cur = conn.cursor()
     query = """
     SELECT * FROM states
-    WHERE name = '{}'
+    WHERE name LIKE BINARY '{}'
     ORDER BY id ASC
     """.format(argv[4])
     # triple-quoted strings (""" ... """) are used to create multi-line strings
