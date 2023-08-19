@@ -11,7 +11,7 @@ if __name__ == "__main__":
     db = argv[3]
     dbUrl = 'mysql+mysqldb://{}:{}@localhost/{}'.format(user, pas, db)
     engine = create_engine(dbUrl)
-    Session = sessionmaker(bind = engine) #returns a function
+    Session = sessionmaker(bind=engine)  # returns a function
     session = Session()
 
     for instance in session.query(State).order_by(State.id):
