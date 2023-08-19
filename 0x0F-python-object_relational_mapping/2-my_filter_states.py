@@ -14,7 +14,7 @@ if __name__ == "__main__":
             )
     cur = conn.cursor()
     query = "SELECT * FROM states WHERE name =
-    -'{}' ORDER BY id ASC".format(state_name)
+    '{}' ORDER BY id ASC".format(state_name)
     # Query at risk of sql injection
     cur.execute(query)
     states_list = cur.fetchall()
