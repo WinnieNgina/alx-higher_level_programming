@@ -13,8 +13,9 @@ if __name__ == "__main__":
             port=3306
             )
     cur = conn.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
-# Query at risk of sql injection
+    query = "SELECT * FROM states WHERE name =
+    -'{}' ORDER BY id ASC".format(state_name)
+    # Query at risk of sql injection
     cur.execute(query)
     states_list = cur.fetchall()
     for state in states_list:
