@@ -4,7 +4,6 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    sn = argv[4]
     conn = MySQLdb.connect(
             host='localhost',
             user=argv[1],
@@ -13,7 +12,8 @@ if __name__ == "__main__":
             port=3306
             )
     cur = conn.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(sn)
+    query =
+    "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(argv[4])
     # Query at risk of sql injection
     cur.execute(query)
     states_list = cur.fetchall()
