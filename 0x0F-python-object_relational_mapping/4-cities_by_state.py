@@ -13,11 +13,12 @@ if __name__ == "__main__":
             )
     cur = conn.cursor()
     query = """
-	SELECT cities.id, cities.name, states.name
-	FROM cities
-	JOIN states ON cities.state_id = states.id
-	ORDER BY id ASC
-	"""
+    SELECT cities.id, cities.name, states.name
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    ORDER BY id ASC
+    """
+    # cities.state_id is a foreign key in a cities table
     cur.execute(query)
     cities_list = cur.fetchall()
     for city in cities_list:
