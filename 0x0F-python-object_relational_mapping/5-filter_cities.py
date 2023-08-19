@@ -14,11 +14,11 @@ if __name__ == "__main__":
             )
     cur = conn.cursor()
     query = """
-    SELECTcities.name
+    SELECT cities.name
     FROM cities
-    JOIN states ON cities.state_id = states.id
+    INNER JOIN states ON cities.state_id = states.id
     WHERE states.name = %s
-    ORDER BY id ASC
+    ORDER BY cities.id
     """
     # cities.state_id is a foreign key in a cities table
     cur.execute(query, (state_name,))
