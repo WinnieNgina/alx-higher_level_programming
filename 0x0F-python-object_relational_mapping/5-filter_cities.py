@@ -22,8 +22,10 @@ if __name__ == "__main__":
     """
     # cities.state_id is a foreign key in a cities table
     cur.execute(query, (state_name,))
-    cities_list = cur.fetchall()
-    for city in cities_list:
-        print(city)
+    cities_tuple = cur.fetchall()
+    cities_list = []
+    for city in cities_tuple:
+        cities_list.append(city[0])
+    print(", ".join(cities_list))
     cur.close()
     conn.close()
