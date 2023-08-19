@@ -24,3 +24,4 @@ if __name__ == "__main__":
 
     for insitance in session.query(State).order_by(State.id):
         print("{}: {}".format(inistance.id, inistance.name))
+    session..close()
