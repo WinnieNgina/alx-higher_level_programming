@@ -23,7 +23,7 @@ if __name__ == "__main__":
     """
     session = Session()
 
-    for insitance in session.query(State).order_by(State.id):
-        print("{}: {}".format(inistance.id, inistance.name))
+    for inst in session.query(State).order_by(State.id):
+        print("{}: {}".format(inst.id, inst.name))
 
     session.close()
