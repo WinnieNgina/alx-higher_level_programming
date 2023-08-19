@@ -22,5 +22,5 @@ if __name__ == "__main__":
     """
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+    for insitance in session.query(State).order_by(State.id):
+        print("{}: {}".format(inistance.id, inistance.name))
