@@ -20,7 +20,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for stato, instance in session.query(State, City).filter(State.id == City.state_id).all():
+    for stato, instance in session.query(State, City).filter(
+            State.id == City.state_id).all():
         print("{}: ({}) {}".format(stato.name, instance.id, instance.name))
 
     session.close()
