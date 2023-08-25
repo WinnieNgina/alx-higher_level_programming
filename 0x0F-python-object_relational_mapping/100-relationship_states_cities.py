@@ -6,8 +6,8 @@ Module that connects python script to a database
 from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_city import Base, City
-from relationship_state import State
+from relationship_city import Base as CityBase, City
+from relationship_state import Base as StateBase, State
 
 if __name__ == "__main__":
 
@@ -16,7 +16,8 @@ if __name__ == "__main__":
         .format(argv[1], argv[2], argv[3]),
         pool_pre_ping=True
     )
-    Base.metadata.create_all(engine)
+    StateBase.metadata.create_all(engine)
+    CityBase.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     new_state = State(name="California")
