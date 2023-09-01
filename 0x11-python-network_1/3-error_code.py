@@ -14,4 +14,4 @@ if __name__ == "__main__":
             encode_response = response.read().decode('utf-8')
             print("{}".format(encode_response))
     except urllib.error.HTTPError as e:
-        print("Enter code: {}".format(e.code))
+        print("Error code: {}".format(e.code))
