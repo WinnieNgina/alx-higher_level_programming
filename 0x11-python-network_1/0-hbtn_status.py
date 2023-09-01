@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-
-import urllib.request
 '''
 Module to fetch specified link
 '''
+import urllib.request
+
 if __name__ == "__main__":
     with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
         content = res.read()
