@@ -1,11 +1,17 @@
 #!/usr/bin/node
+const fs = require('fs');
 const request = require('request');
-const id = process.argv[2];
-const url = 'https://swapi-api.alx-tools.com/api/films/' + id;
+const url = process.argv[2];
+const filePath = process.argv[3];
 request(url, (error, response, body) => {
   if (error) {
     console.error(error);
   } else {
-    const data = JSON.parse(body);
+    fs.writeFile(filePath, body, 'utf-8', error => {
+      if (error) {
+        console.log(error);
+      }
+    }); // Added this closing brace
   }
 });
+
