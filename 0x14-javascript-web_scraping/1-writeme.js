@@ -1,14 +1,12 @@
 #!/usr/bin/node
-const request = require('request');
+
+const fs = require('fs');
 const args = process.argv;
-const id = args[2];
-const options = {
-  method: 'GET',
-  url: 'https://swapi-api.alx-tools.com/api/films/:id',
-  headers: {
+const filePath = args[2];
+const message = process.argv[3];
+
+fs.writeFile(filePath, message, 'utf-8', error => {
+  if (error) {
+    console.log(error);
   }
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
 });
