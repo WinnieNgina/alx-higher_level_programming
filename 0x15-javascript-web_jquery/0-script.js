@@ -1,6 +1,6 @@
 const headElement = document.querySelector('header');
 if (headElement) {
-  headElement.style.colour = '#FF0000';
+  headElement.style.color = '#FF0000';
 } else {
-  console.log('Header element not found');
+  console.error('Header element not found');
 }
